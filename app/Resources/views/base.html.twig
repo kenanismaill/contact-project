@@ -17,6 +17,11 @@
         <a class="nav-link" href="{{ path('create.contact') }}">New Contact</a>
     </li>
 </ul>
+{% if app.flashes('success') %}
+    <div class="alert alert-success" role="alert">
+      Good Job
+    </div>
+{% endif %}
 <div id="container">
     {% block content %}{% endblock %}
 </div>

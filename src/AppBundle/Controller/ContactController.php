@@ -62,6 +62,7 @@ class ContactController extends Controller
         $response = $repo->insert($data);
         
         if ($response->isSuccess()) {
+            $this->addFlash('success', 'successfully created');
             return $this->redirectToRoute('get.contact');
         } else
             return $this->redirectToRoute('get.contact');
@@ -105,6 +106,7 @@ class ContactController extends Controller
         $response = $repo->update($contact, $data);
         
         if ($response->isSuccess()) {
+            $this->addFlash('success', 'successfully created');
             return $this->redirectToRoute('get.contact');
         } else
             return $this->redirectToRoute('get.contact');
