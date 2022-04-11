@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %}Address Book{% endblock %}
+{% block stylesheet %} {% endblock %}
+
+{% block content %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for item in data %}
+            <div class="col">
+                <div class="card">
+
+                    <img src="{{ asset('tmp/galleries' ~ item.getPicture()) }}" class="card-img-top" alt="{{ item.getPicture() }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.Firstname }}  {{ item.Lastname}} </h5>
+                        <p class="card-body"> <strong>City: </strong> {{ item.City }}- Street Number: {{ item.StreetNumber }}</p>
+                        <strong>Country: {{ item.country }} </strong>
+                        <strong>Country: {{ item.birthday }} </strong>
+                    </div>
+                    <div>
+                        <div class="card-footer">
+                            <a href="{{ path('edit.contact', {contact: item.id})  }}" class="btn btn-primary"> Edit</a>
+                            <a href="{{ path('delete.contact', {id: item.id}) }}" class="btn btn-danger delete-button"> Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
